@@ -1,1 +1,31 @@
 
+title Tallenna
+
+selain->palvelin: HTTP GET https://studies.cs.helsinki.fi/exampleapp/new_note_spa
+palvelin-->selain: application/json
+
+note over selain:
+Selain alkaa suorittaa js-koodia
+joka pyytää JSON-datan palvelimelta
+Pyyntö kohdistuu osoitteeseen new_note_spa,
+on tyypiltään POST ja se sisältää
+JSON-muodossa olevan uuden muistiinpanon,
+johon kuuluu sekä sisältö (content) että 
+aikaleima (date). Pyyntöön liitetty headeri
+Content-Type kertoo palvelimelle,
+että pyynnön mukana tuleva data on
+JSON-muotoista
+end note
+
+selain->palvelin: HTTP GET https://studies.cs.helsinki.fi/exampleapp/data.json
+palvelin-->selain: [{ content: "PumppisRumppis Smuupit", date: "2021-07-05" }, ...]
+
+note over selain:
+Komennolla document.getElementById('notes_form')
+koodi hakee sivulta lomake-elementin ja
+rekisteröi sille tapahtumankäsittelijän
+hoitamaan tilanteen, jossa lomake "submitoidaan"
+eli lähetetään. selain suorittaa 
+tapahtumankäsittelijän
+joka renderöi muistiinpanot näytölle.
+end note
